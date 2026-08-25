@@ -134,10 +134,12 @@
   .event-card:hover .card-icon { background:#CCFF00; border-color:#CCFF00; }
   .event-card:hover .card-icon .material-symbols-outlined { color:#0e0e0e; }
 
-  /* DRIVE list */
-  .drive-item { display:flex; gap:1rem; padding:1.1rem 0; border-bottom:1px solid rgba(255,255,255,.07); }
-  .drive-item:last-child { border-bottom:none; }
-  .drive-dot { flex:none; width:.6rem; height:.6rem; border-radius:9999px; background:#CCFF00; margin-top:.55rem; }
+  /* DRIVE cards */
+  .drive-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:.5rem; padding:1.5rem; transition:transform .3s ease, border-color .3s ease; }
+  .drive-card:hover { border-color:rgba(204,255,0,.3); transform:translateY(-4px); }
+  .drive-letter { font-size:40px; font-weight:800; color:#CCFF00; line-height:1; letter-spacing:-.03em; margin-bottom:.75rem; }
+  .drive-card h3 { color:#fff; font-weight:700; font-size:18px; margin-bottom:.4rem; }
+  .drive-card p { color:#c4c9ac; font-size:14px; line-height:1.55; }
 
   /* Pills */
   .pill { display:inline-flex; align-items:center; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.03); border-radius:9999px; padding:.45rem 1.1rem; font-size:14px; color:#e4e2e1; }
@@ -243,10 +245,10 @@
         <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-white leading-tight">
           Quando Pessoas Acreditam: <br class="hidden md:block"/> O <span class="text-accent-lime italic font-light">Drive do Coração™</span>
         </h1>
-        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">35 anos de varejo real no seu evento. Uma metodologia que funciona para engajar equipes do C-level ao chão de loja.</p>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">35 anos de varejo real na sua palestra. Uma metodologia que funciona para engajar equipes do C-level ao chão de loja.</p>
         <div class="flex flex-col sm:flex-row gap-4 mt-4">
           <a href="#contato" class="btn-vibrant-green font-label-md text-label-md uppercase tracking-wider py-4 px-8 font-extrabold flex items-center justify-center gap-2 group">
-            Contratar para o Seu Evento <span class="material-symbols-outlined text-black group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            Contratar a Palestra <span class="material-symbols-outlined text-black group-hover:translate-x-1 transition-transform">arrow_forward</span>
           </a>
           <a href="#video" class="btn-dark-green font-label-md text-label-md uppercase tracking-wider py-4 px-8 font-bold flex items-center justify-center gap-2 group">
             Assista Fábio em Ação <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
@@ -280,7 +282,7 @@
     <!-- Pitch -->
     <div class="reveal">
       <div class="eyebrow mb-5"><span class="line" style="background-color:#1A3D4A"></span><span class="text" style="color:#1A3D4A">Agende sua data</span></div>
-      <h2 class="font-headline-lg text-headline-lg md:text-display-lg text-[#122C36] leading-tight">Leve o Fábio para o seu evento</h2>
+      <h2 class="font-headline-lg text-headline-lg md:text-display-lg text-[#122C36] leading-tight">Leve o Fábio para a sua palestra</h2>
       <p class="font-body-lg text-body-lg text-[#454747] mt-5 max-w-md">Preencha o formulário e a equipe retorna com uma proposta personalizada para a data e o formato do seu evento.</p>
       <div class="mt-8 flex flex-col gap-4">
         <div class="flex items-center gap-3 text-[#1a1c1c] font-body-md"><span class="material-symbols-outlined text-[#1A3D4A]">schedule</span>Resposta em até 24h úteis</div>
@@ -419,27 +421,20 @@
 <!-- ================= BLOCO 5 — A PALESTRA ================= -->
 <section id="palestra" class="bg-brand-petrol-deep py-24 md:py-28">
   <div class="max-w-screen-2xl mx-auto px-margin-mobile md:px-12">
-    <div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-14 lg:gap-20 items-start">
-      <div class="reveal">
-        <div class="eyebrow mb-5"><span class="line"></span><span class="text">A palestra</span></div>
-        <h2 class="font-headline-lg text-headline-lg md:text-display-lg text-white leading-tight">Quando Pessoas Acreditam:<br/>O Drive do Coração™</h2>
-        <p class="text-body-lg text-on-surface-variant mt-6 max-w-md">Depois de 35 anos, Fábio chegou a uma verdade: <span class="text-accent-lime font-bold">empresas extraordinárias são construídas por pessoas que acreditam no que fazem.</span></p>
-        <div class="mt-10 flex flex-col gap-3 text-on-surface-variant text-body-md border-t border-white/10 pt-6">
-          <div class="flex items-center gap-3"><span class="material-symbols-outlined text-accent-lime text-xl">schedule</span>60–90 min, ajustável</div>
-          <div class="flex items-center gap-3"><span class="material-symbols-outlined text-accent-lime text-xl">location_on</span>Presencial em todo o Brasil</div>
-          <div class="flex items-center gap-3"><span class="material-symbols-outlined text-accent-lime text-xl">mic</span>Conteúdo personalizado para seu setor</div>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="mb-6"><span class="pill font-label-md text-[12px] uppercase tracking-widest text-accent-lime border-accent-lime/30">Framework D.R.I.V.E.</span></div>
-        <div>
-          <div class="drive-item"><span class="drive-dot"></span><div><span class="text-white font-bold">D — Descoberta:</span> <span class="text-on-surface-variant">Encontrar o propósito real. Equipes sabem pra que acordam.</span></div></div>
-          <div class="drive-item"><span class="drive-dot"></span><div><span class="text-white font-bold">R — Raiz:</span> <span class="text-on-surface-variant">Conectar decisões ao que as pessoas acreditam. Base emocional.</span></div></div>
-          <div class="drive-item"><span class="drive-dot"></span><div><span class="text-white font-bold">I — Identidade:</span> <span class="text-on-surface-variant">Construir marca que reflete crença. Diferenciação real.</span></div></div>
-          <div class="drive-item"><span class="drive-dot"></span><div><span class="text-white font-bold">V — Vitalidade:</span> <span class="text-on-surface-variant">Engajar times porque sabem o propósito. Motivação intrínseca.</span></div></div>
-          <div class="drive-item"><span class="drive-dot"></span><div><span class="text-white font-bold">E — Evolução:</span> <span class="text-on-surface-variant">Deixar legado que dura. Liderança que transcende.</span></div></div>
-        </div>
-      </div>
+    <!-- Cabeçalho centralizado -->
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <div class="eyebrow center mb-5"><span class="line"></span><span class="text">A palestra</span></div>
+      <h2 class="font-headline-lg text-headline-lg md:text-display-lg text-white leading-tight">Quando Pessoas Acreditam: O Drive do Coração™</h2>
+      <p class="text-body-lg text-on-surface-variant mt-6">Depois de 35 anos, Fábio chegou a uma verdade: <span class="text-accent-lime font-bold">empresas extraordinárias são construídas por pessoas que acreditam no que fazem.</span></p>
+      <div class="mt-8 flex justify-center"><span class="pill font-label-md text-[12px] uppercase tracking-widest text-accent-lime border-accent-lime/30">Framework D.R.I.V.E.</span></div>
+    </div>
+    <!-- Grade D.R.I.V.E. -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mt-14">
+      <div class="drive-card reveal"><div class="drive-letter">D</div><h3>Descoberta</h3><p>Encontrar o propósito real. Equipes sabem pra que acordam.</p></div>
+      <div class="drive-card reveal"><div class="drive-letter">R</div><h3>Raiz</h3><p>Conectar decisões ao que as pessoas acreditam. Base emocional.</p></div>
+      <div class="drive-card reveal"><div class="drive-letter">I</div><h3>Identidade</h3><p>Construir marca que reflete crença. Diferenciação real.</p></div>
+      <div class="drive-card reveal"><div class="drive-letter">V</div><h3>Vitalidade</h3><p>Engajar times porque sabem o propósito. Motivação intrínseca.</p></div>
+      <div class="drive-card reveal"><div class="drive-letter">E</div><h3>Evolução</h3><p>Deixar legado que dura. Liderança que transcende.</p></div>
     </div>
   </div>
 </section>
