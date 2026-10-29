@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Fábio Hertel | Quando Pessoas Acreditam: O Drive do Coração™</title>
-<meta name="description" content="Palestrante, investidor e especialista em branding. 35 anos de varejo real no seu evento — do C-level ao chão de loja. Palestras para convenções, lideranças e eventos corporativos em todo o Brasil."/>
+<title>Fabio Hertel | Quando Pessoas Acreditam: O Drive do Coração™</title>
+<meta name="description" content="Palestrante, investidor e especialista em branding. 32 anos de varejo real no seu evento, do C-level ao chão de loja. Palestras para convenções, lideranças e eventos corporativos em todo o Brasil."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -111,7 +111,6 @@
 
   /* Eyebrow */
   .eyebrow { display:flex; align-items:center; gap:1rem; }
-  .eyebrow span.line { width:3rem; height:2px; background:#CCFF00; flex:none; }
   .eyebrow span.text { font-family:'Plus Jakarta Sans'; font-size:13px; letter-spacing:.15em; text-transform:uppercase; color:#CCFF00; }
   .eyebrow.center { justify-content:center; }
 
@@ -159,10 +158,18 @@
   /* Pills */
   .pill { display:inline-flex; align-items:center; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.03); border-radius:9999px; padding:.45rem 1.1rem; font-size:14px; color:#e4e2e1; }
 
-  /* Logo chip */
-  .logo-chip { background:#fff; border-radius:.5rem; display:flex; align-items:center; justify-content:center; padding:1rem 1.25rem; height:84px; transition:transform .3s ease, box-shadow .3s ease; }
-  .logo-chip:hover { transform:translateY(-3px); box-shadow:0 14px 28px -14px rgba(0,0,0,.55); }
-  .logo-chip img { max-height:48px; max-width:100%; object-fit:contain; }
+  /* Marquee (logos deslizando) */
+  .marquee { overflow:hidden; -webkit-mask-image:linear-gradient(to right, transparent, #000 6%, #000 94%, transparent); mask-image:linear-gradient(to right, transparent, #000 6%, #000 94%, transparent); }
+  .marquee-track { display:flex; align-items:center; gap:1rem; width:max-content; list-style:none; margin:0; padding:0; animation:marquee 140s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state:paused; }
+  .marquee-reverse { animation-direction:reverse; }
+  .marquee-lg .marquee-track { animation-duration:90s; }
+  .marquee-lg .marquee-logo { width:168px; height:84px; padding:.8rem 1.1rem; }
+  .marquee-lg .marquee-logo img { max-height:56px; }
+  @keyframes marquee { to { transform:translateX(calc(-50% - .5rem)); } }
+  .marquee-logo { flex:none; width:132px; height:60px; background:#fff; border-radius:.5rem; display:flex; align-items:center; justify-content:center; padding:.6rem .9rem; }
+  .marquee-logo img { max-height:40px; max-width:100%; object-fit:contain; }
+
 
   /* Testimonial */
   .quote-card { background:#1f2020; border:1px solid rgba(255,255,255,.06); border-top:4px solid #CCFF00; }
@@ -213,6 +220,9 @@
     html { scroll-behavior:auto; }
     .reveal { opacity:1 !important; transform:none !important; }
     .play-btn { animation:none !important; }
+    .marquee { -webkit-mask-image:none; mask-image:none; }
+    .marquee-track { animation:none !important; flex-wrap:wrap; justify-content:center; width:auto; }
+    .marquee-track [aria-hidden="true"] { display:none; }
   }
 </style>
 <noscript><style>.reveal{opacity:1 !important; transform:none !important;}</style></noscript>
@@ -222,7 +232,7 @@
 <!-- ================= NAV ================= -->
 <header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/30">
   <div class="flex justify-between items-center px-margin-mobile md:px-12 py-4 max-w-screen-2xl mx-auto">
-    <a href="#top" class="font-display-lg text-headline-sm text-on-surface font-bold tracking-tight">Fábio <span class="text-accent-lime">Hertel</span></a>
+    <a href="#top" class="font-display-lg text-headline-sm text-on-surface font-bold tracking-tight">Fabio <span class="text-accent-lime">Hertel</span></a>
     <nav class="hidden md:flex items-center gap-stack-lg">
       <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#palestra">Palestra</a>
       <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#fabio">Sobre</a>
@@ -247,7 +257,7 @@
 <main id="top" class="relative min-h-screen flex flex-col pt-24 overflow-hidden">
   <!-- Foto de fundo -->
   <div class="absolute inset-0 z-0">
-    <img src="assets/hero/fabio-hero.jpg" alt="Fábio Hertel no palco diante de uma plateia lotada" class="w-full h-full object-cover object-[70%_center]"/>
+    <img src="assets/hero/fabio-hero.jpg" alt="Fabio Hertel no palco diante de uma plateia lotada" class="w-full h-full object-cover object-[70%_center]"/>
     <div class="absolute inset-0 bg-background/45"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-background via-background/75 to-transparent"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent"></div>
@@ -256,17 +266,17 @@
   <div class="flex-1 flex items-center relative z-10">
     <div class="max-w-screen-2xl mx-auto w-full px-margin-mobile md:px-12 py-16 md:py-20">
       <div class="max-w-2xl flex flex-col gap-stack-lg items-center text-center md:items-start md:text-left">
-        <div class="eyebrow"><span class="line"></span><span class="text">Palestras para convenções, lideranças e eventos corporativos</span></div>
+        <div class="eyebrow"><span class="text">Palestras para convenções, lideranças e eventos corporativos</span></div>
         <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-white leading-tight">
           Quando Pessoas Acreditam: <br class="hidden md:block"/> O <span class="text-accent-lime italic font-light">Drive do Coração™</span>
         </h1>
-        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">35 anos de varejo real na sua palestra. Uma metodologia que funciona para engajar equipes do C-level ao chão de loja.</p>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">32 anos de varejo real na sua palestra. Uma metodologia que funciona para engajar equipes do C-level ao chão de loja.</p>
         <div class="flex flex-col sm:flex-row gap-4 mt-4">
           <a href="#contato" class="btn-vibrant-green font-label-md text-label-md uppercase tracking-wider py-4 px-8 font-extrabold flex items-center justify-center gap-2 group">
             Contratar a Palestra <span class="material-symbols-outlined text-black group-hover:translate-x-1 transition-transform">arrow_forward</span>
           </a>
           <a href="#video" class="btn-dark-green font-label-md text-label-md uppercase tracking-wider py-4 px-8 font-bold flex items-center justify-center gap-2 group">
-            Assista Fábio em Ação <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            Assista Fabio em Ação <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
           </a>
         </div>
         <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-2">
@@ -277,15 +287,80 @@
     </div>
   </div>
   <!-- Logos strip -->
-  <div class="max-w-screen-2xl mx-auto px-margin-mobile md:px-12 py-12 border-t border-white/5 relative z-10">
-    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+  <div class="w-full max-w-screen-2xl mx-auto px-margin-mobile md:px-12 py-10 border-t border-white/5 relative z-10">
+    <div class="flex flex-col md:flex-row items-center gap-6 md:gap-12">
       <span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant whitespace-nowrap opacity-50">Empresas que confiaram</span>
-      <div class="flex flex-wrap justify-center md:justify-start items-center gap-8 md:gap-12">
-        <div class="h-6 flex items-center text-white font-bold tracking-tighter text-headline-sm opacity-70">ABRAS</div>
-        <div class="h-6 flex items-center text-white font-bold tracking-tighter text-headline-sm opacity-70">APAS</div>
-        <div class="h-6 flex items-center text-white font-bold tracking-tighter text-headline-sm opacity-70">SENAR</div>
-        <div class="h-6 flex items-center text-white font-bold tracking-tighter text-headline-sm opacity-70">CDL</div>
-        <div class="h-6 flex items-center text-white font-bold tracking-tighter text-headline-sm opacity-70">O BOTICÁRIO</div>
+      <div class="flex-1 min-w-0 w-full">
+        <div class="marquee" aria-label="Logos de empresas que confiaram">
+          <ul class="marquee-track">
+            <li class="marquee-logo"><img src="assets/logos/Frame-20.jpg" alt="ABRAS" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/Frame-8.jpg" alt="APAS" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/Frame-14.jpg" alt="O Boticário" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/extrabom.jpg" alt="Extrabom" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/Frame-9.jpg" alt="ACAPS" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/Frame-17.jpg" alt="SENAR" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/cna.jpg" alt="CNA" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/wine.jpg" alt="Wine" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/Frame-21.jpg" alt="CDL" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/findes.jpg" alt="FINDES" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/Frame-15.jpg" alt="Chevron" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/ufes.jpg" alt="UFES" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/Frame-10.jpg" alt="AMIS" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/oriundi-supermercados.jpg" alt="Oriundi Supermercados" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/estacio.jpg" alt="Estácio" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/Frame-19.jpg" alt="AFORT" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/fundacao-estudar.jpg" alt="Fundação Estudar" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/rede-show.jpg" alt="Rede Show Supermercados" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/uvv.jpg" alt="UVV" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/Frame-20-1.jpg" alt="Frutos do Sertão" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/governo-espirito-santo.jpg" alt="Governo do Estado do Espírito Santo" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/cofril.jpg" alt="Cofril" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/faesa.jpg" alt="FAESA" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/pmi.jpg" alt="PMI" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/prefeitura-vila-velha.jpg" alt="Prefeitura de Vila Velha" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/fucape.jpg" alt="FUCAPE Business School" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/shopping-vila-velha.jpg" alt="Shopping Vila Velha" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/ifes.jpg" alt="IFES" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/win-eventos.jpg" alt="Win Eventos" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/brasil-alimenta.jpg" alt="Brasil Alimenta" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/congresso-olericultura.jpg" alt="Congresso Brasileiro de Olericultura (ABH)" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/clube-de-permuta.jpg" alt="Clube de Permuta" loading="lazy"/></li>
+            <li class="marquee-logo"><img src="assets/logos/sicomercio-barra-mansa.jpg" alt="Sicomércio Barra Mansa" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-20.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-8.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-14.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/extrabom.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-9.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-17.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/cna.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/wine.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-21.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/findes.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-15.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/ufes.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-10.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/oriundi-supermercados.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/estacio.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-19.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/fundacao-estudar.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/rede-show.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/uvv.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-20-1.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/governo-espirito-santo.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/cofril.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/faesa.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/pmi.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/prefeitura-vila-velha.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/fucape.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/shopping-vila-velha.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/ifes.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/win-eventos.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/brasil-alimenta.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/congresso-olericultura.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/clube-de-permuta.jpg" alt="" loading="lazy"/></li>
+            <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/sicomercio-barra-mansa.jpg" alt="" loading="lazy"/></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -296,8 +371,8 @@
   <div class="max-w-screen-2xl mx-auto px-margin-mobile md:px-12 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-20 items-center">
     <!-- Pitch -->
     <div class="reveal">
-      <div class="eyebrow mb-5"><span class="line" style="background-color:#1A3D4A"></span><span class="text" style="color:#1A3D4A">Agende sua data</span></div>
-      <h2 class="font-headline-lg text-headline-lg md:text-display-lg text-[#122C36] leading-tight">Leve o Fábio para a sua palestra</h2>
+      <div class="eyebrow mb-5"><span class="text" style="color:#1A3D4A">Agende sua data</span></div>
+      <h2 class="font-headline-lg text-headline-lg md:text-display-lg text-[#122C36] leading-tight">Leve o Fabio para a sua palestra</h2>
       <p class="font-body-lg text-body-lg text-[#454747] mt-5 max-w-md">Preencha o formulário e a equipe retorna com uma proposta personalizada para a data e o formato do seu evento.</p>
       <div class="mt-8 flex flex-col gap-4">
         <div class="flex items-center gap-3 text-[#1a1c1c] font-body-md"><span class="material-symbols-outlined text-[#1A3D4A]">schedule</span>Resposta em até 24h úteis</div>
@@ -310,7 +385,7 @@
       <div class="bg-white rounded-xl p-8 md:p-10 shadow-2xl text-[#1a1c1c]">
         <form class="space-y-6" id="leadForm" novalidate>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="flex flex-col gap-1"><label for="f-nome" class="font-label-md text-[11px] uppercase tracking-tighter text-[#636565]">Nome completo</label><input id="f-nome" class="input-field" placeholder="Como podemos te chamar?" type="text" name="nome" required/></div>
+            <div class="flex flex-col gap-1"><label for="f-nome" class="font-label-md text-[11px] uppercase tracking-tighter text-[#636565]">Nome completo</label><input id="f-nome" class="input-field" placeholder="Wagner de Almeida Carvalho" type="text" name="nome" required/></div>
             <div class="flex flex-col gap-1"><label for="f-empresa" class="font-label-md text-[11px] uppercase tracking-tighter text-[#636565]">Empresa / Associação</label><input id="f-empresa" class="input-field" placeholder="Nome da sua organização" type="text" name="empresa" required/></div>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -328,11 +403,17 @@
               <option value="outro">Outro</option>
             </select>
           </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-1"><label for="f-data" class="font-label-md text-[11px] uppercase tracking-tighter text-[#636565]">Data do evento</label><input id="f-data" class="input-field cursor-pointer" type="date" name="data" required/></div>
+            <div class="flex flex-col gap-1"><label for="f-hora" class="font-label-md text-[11px] uppercase tracking-tighter text-[#636565]">Hora da palestra</label><input id="f-hora" class="input-field cursor-pointer" type="time" name="hora"/></div>
+          </div>
+          <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true"/>
           <div class="pt-4">
             <button class="w-full bg-[#1A3D4A] hover:bg-[#000] text-white font-label-md text-label-md uppercase tracking-widest py-5 rounded-lg flex items-center justify-center gap-3 transition-all duration-300 group" type="submit">
               Consultar disponibilidade <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </button>
             <p id="formMsg" class="hidden text-center text-[13px] mt-4 text-[#3c4d00] font-medium">✓ Recebemos seus dados. A equipe retorna em até 24h úteis.</p>
+            <p id="formErr" class="hidden text-center text-[13px] mt-4 text-[#93000a] font-medium">Não conseguimos enviar agora. Tente de novo ou <a href="https://wa.me/5511912151400" target="_blank" rel="noopener" class="underline">fale pelo WhatsApp</a>.</p>
           </div>
         </form>
       </div>
@@ -344,10 +425,10 @@
 <section class="bg-background py-20 md:py-24 border-t border-white/5">
   <div class="max-w-screen-2xl mx-auto px-margin-mobile md:px-12 reveal">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-      <div class="stat"><div class="num"><span data-count="35">35</span><span class="unit">anos</span></div><p class="mt-3 text-on-surface-variant text-body-md">à frente da maior rede de hortifrúti do Brasil</p></div>
+      <div class="stat"><div class="num"><span data-count="32">32</span><span class="unit">anos</span></div><p class="mt-3 text-on-surface-variant text-body-md">à frente da maior rede de hortifrúti do Brasil</p></div>
       <div class="stat"><div class="num"><span data-count="6500">6.500</span></div><p class="mt-3 text-on-surface-variant text-body-md">colaboradores liderados na prática</p></div>
       <div class="stat"><div class="num"><span class="prefix">R$</span><span data-count="1.7" data-decimal="1">1,7</span><span class="unit">bi</span></div><p class="mt-3 text-on-surface-variant text-body-md">de faturamento construído</p></div>
-      <div class="stat"><div class="num"><span data-count="30">30</span><span class="unit">anos</span></div><p class="mt-3 text-on-surface-variant text-body-md">de palco antes de profissionalizar</p></div>
+      <div class="stat"><div class="num"><span data-count="30">30</span><span class="unit">anos</span></div><p class="mt-3 text-on-surface-variant text-body-md">de palco</p></div>
     </div>
   </div>
 </section>
@@ -356,7 +437,7 @@
 <section class="bg-white py-24 md:py-28">
   <div class="max-w-screen-2xl mx-auto px-margin-mobile md:px-12">
     <div class="max-w-2xl mx-auto text-center reveal">
-      <div class="eyebrow center mb-5"><span class="line" style="background-color:#1A3D4A"></span><span class="text" style="color:#1A3D4A">Para o seu momento</span></div>
+      <div class="eyebrow center mb-5"><span class="text" style="color:#1A3D4A">Para o seu momento</span></div>
       <h2 class="font-headline-lg text-headline-lg md:text-display-lg text-[#122C36]">A palestra certa para o momento certo da sua empresa</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-14">
@@ -365,8 +446,8 @@
         <div class="card-icon" aria-hidden="true"><span class="material-symbols-outlined">trending_up</span></div>
         <h3 class="text-headline-sm font-bold text-[#122C36] mb-4">Convenção de Vendas</h3>
         <ul class="space-y-3 text-[#454747] text-body-md">
-          <li class="flex gap-3"><span class="text-[#1A3D4A]">—</span>Equipes que vendem com crença, não só com meta</li>
-          <li class="flex gap-3"><span class="text-[#1A3D4A]">—</span>Retenção mensurável no pós-evento</li>
+          <li class="flex gap-3"><span class="mt-[0.6em] w-1.5 h-1.5 rounded-full bg-[#1A3D4A] flex-none" aria-hidden="true"></span>Equipes que vendem com crença, não só com meta</li>
+          <li class="flex gap-3"><span class="mt-[0.6em] w-1.5 h-1.5 rounded-full bg-[#1A3D4A] flex-none" aria-hidden="true"></span>Retenção mensurável no pós-evento</li>
         </ul>
       </div>
       <div class="event-card rounded-xl p-8 reveal">
@@ -374,8 +455,8 @@
         <div class="card-icon" aria-hidden="true"><span class="material-symbols-outlined">handshake</span></div>
         <h3 class="text-headline-sm font-bold text-[#122C36] mb-4">Associações Varejistas (ABRAS, APAS, CDL)</h3>
         <ul class="space-y-3 text-[#454747] text-body-md">
-          <li class="flex gap-3"><span class="text-[#1A3D4A]">—</span>Cases reais do setor, contados por quem foi do balcão</li>
-          <li class="flex gap-3"><span class="text-[#1A3D4A]">—</span>Credibilidade imediata com seu público</li>
+          <li class="flex gap-3"><span class="mt-[0.6em] w-1.5 h-1.5 rounded-full bg-[#1A3D4A] flex-none" aria-hidden="true"></span>Cases reais do setor, contados por quem foi do balcão</li>
+          <li class="flex gap-3"><span class="mt-[0.6em] w-1.5 h-1.5 rounded-full bg-[#1A3D4A] flex-none" aria-hidden="true"></span>Credibilidade imediata com seu público</li>
         </ul>
       </div>
       <div class="event-card rounded-xl p-8 reveal">
@@ -383,8 +464,8 @@
         <div class="card-icon" aria-hidden="true"><span class="material-symbols-outlined">groups</span></div>
         <h3 class="text-headline-sm font-bold text-[#122C36] mb-4">Eventos para Colaboradores</h3>
         <ul class="space-y-3 text-[#454747] text-body-md">
-          <li class="flex gap-3"><span class="text-[#1A3D4A]">—</span>Fala com C-level e repositor de prateleira na mesma sala</li>
-          <li class="flex gap-3"><span class="text-[#1A3D4A]">—</span>Amplitude e profundidade raras</li>
+          <li class="flex gap-3"><span class="mt-[0.6em] w-1.5 h-1.5 rounded-full bg-[#1A3D4A] flex-none" aria-hidden="true"></span>Fala com C-level e repositor de prateleira na mesma sala</li>
+          <li class="flex gap-3"><span class="mt-[0.6em] w-1.5 h-1.5 rounded-full bg-[#1A3D4A] flex-none" aria-hidden="true"></span>Amplitude e profundidade raras</li>
         </ul>
       </div>
       <div class="event-card rounded-xl p-8 reveal">
@@ -392,8 +473,8 @@
         <div class="card-icon" aria-hidden="true"><span class="material-symbols-outlined">campaign</span></div>
         <h3 class="text-headline-sm font-bold text-[#122C36] mb-4">Ativações &amp; Experiências de Marca</h3>
         <ul class="space-y-3 text-[#454747] text-body-md">
-          <li class="flex gap-3"><span class="text-[#1A3D4A]">—</span>Conteúdo que gera ação concreta</li>
-          <li class="flex gap-3"><span class="text-[#1A3D4A]">—</span>Participantes saem com framework aplicável</li>
+          <li class="flex gap-3"><span class="mt-[0.6em] w-1.5 h-1.5 rounded-full bg-[#1A3D4A] flex-none" aria-hidden="true"></span>Conteúdo que gera ação concreta</li>
+          <li class="flex gap-3"><span class="mt-[0.6em] w-1.5 h-1.5 rounded-full bg-[#1A3D4A] flex-none" aria-hidden="true"></span>Participantes saem com framework aplicável</li>
         </ul>
       </div>
     </div>
@@ -404,25 +485,25 @@
 <section id="video" class="hero-gradient py-24 md:py-28 border-y border-white/5">
   <div class="max-w-screen-2xl mx-auto px-margin-mobile md:px-12">
     <div class="text-center reveal">
-      <div class="eyebrow center mb-5"><span class="line"></span><span class="text">Veja em ação</span><span class="line"></span></div>
-      <h2 class="font-headline-lg text-headline-lg md:text-display-lg text-white">Três décadas e meia de varejo real, em um palco</h2>
-      <p class="text-on-surface-variant text-body-lg mt-4 max-w-2xl mx-auto">Comece pelo convite do Fábio — depois veja os flashes de quem já subiu ao palco com ele.</p>
+      <div class="eyebrow center mb-5"><span class="text">Veja em ação</span></div>
+      <h2 class="font-headline-lg text-headline-lg md:text-display-lg text-white">Mais de três décadas de varejo real, em um palco</h2>
+      <p class="text-on-surface-variant text-body-lg mt-4 max-w-2xl mx-auto">Comece pelo convite do Fabio e depois veja os flashes de quem já subiu ao palco com ele.</p>
     </div>
     <div class="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-[1100px] mx-auto">
       <!-- Vídeo 1: convite pessoal -->
       <figure class="reveal">
-        <div class="video-facade relative rounded-xl overflow-hidden aspect-video shadow-2xl focus:outline-none focus:ring-2 focus:ring-accent-lime focus:ring-offset-2 focus:ring-offset-brand-petrol" role="button" tabindex="0" aria-label="Reproduzir vídeo: o convite do Fábio Hertel" data-yt="aXvKkpv2woA">
-          <img src="https://img.youtube.com/vi/aXvKkpv2woA/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/aXvKkpv2woA/hqdefault.jpg'" alt="Fábio Hertel apresentando a palestra" class="absolute inset-0 w-full h-full object-cover"/>
+        <div class="video-facade relative rounded-xl overflow-hidden aspect-video shadow-2xl focus:outline-none focus:ring-2 focus:ring-accent-lime focus:ring-offset-2 focus:ring-offset-brand-petrol" role="button" tabindex="0" aria-label="Reproduzir vídeo: o convite do Fabio Hertel" data-yt="aXvKkpv2woA">
+          <img src="https://img.youtube.com/vi/aXvKkpv2woA/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/aXvKkpv2woA/hqdefault.jpg'" alt="Fabio Hertel apresentando a palestra" class="absolute inset-0 w-full h-full object-cover"/>
           <div class="absolute inset-0 bg-gradient-to-t from-[#122C36]/85 via-transparent to-[#122C36]/20"></div>
           <div class="absolute inset-0 flex items-center justify-center"><div class="play-btn"><span class="material-symbols-outlined text-black text-4xl" style="font-variation-settings:'FILL' 1;">play_arrow</span></div></div>
-          <span class="absolute top-4 left-4 font-label-md text-[11px] uppercase tracking-wider text-black bg-accent-lime px-3 py-1 rounded font-bold">O convite do Fábio</span>
+          <span class="absolute top-4 left-4 font-label-md text-[11px] uppercase tracking-wider text-black bg-accent-lime px-3 py-1 rounded font-bold">O convite do Fabio</span>
         </div>
-        <figcaption class="mt-4 text-on-surface-variant text-body-md text-center lg:text-left">A história e a palestra, na voz de quem a vive — em menos de 1 minuto.</figcaption>
+        <figcaption class="mt-4 text-on-surface-variant text-body-md text-center lg:text-left">A história e a palestra, na voz de quem a vive, em menos de 1 minuto.</figcaption>
       </figure>
       <!-- Vídeo 2: flashes de palco -->
       <figure class="reveal">
-        <div class="video-facade relative rounded-xl overflow-hidden aspect-video shadow-2xl focus:outline-none focus:ring-2 focus:ring-accent-lime focus:ring-offset-2 focus:ring-offset-brand-petrol" role="button" tabindex="0" aria-label="Reproduzir vídeo de palco do Fábio Hertel" data-yt="t2R7Lyg5M8g">
-          <img src="https://img.youtube.com/vi/t2R7Lyg5M8g/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/t2R7Lyg5M8g/hqdefault.jpg'" alt="Fábio Hertel no palco" class="absolute inset-0 w-full h-full object-cover"/>
+        <div class="video-facade relative rounded-xl overflow-hidden aspect-video shadow-2xl focus:outline-none focus:ring-2 focus:ring-accent-lime focus:ring-offset-2 focus:ring-offset-brand-petrol" role="button" tabindex="0" aria-label="Reproduzir vídeo de palco do Fabio Hertel" data-yt="t2R7Lyg5M8g">
+          <img src="https://img.youtube.com/vi/t2R7Lyg5M8g/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/t2R7Lyg5M8g/hqdefault.jpg'" alt="Fabio Hertel no palco" class="absolute inset-0 w-full h-full object-cover"/>
           <div class="absolute inset-0 bg-gradient-to-t from-[#122C36]/80 via-transparent to-[#122C36]/20"></div>
           <div class="absolute inset-0 flex items-center justify-center"><div class="play-btn"><span class="material-symbols-outlined text-black text-4xl" style="font-variation-settings:'FILL' 1;">play_arrow</span></div></div>
           <span class="absolute top-4 left-4 font-label-md text-[11px] uppercase tracking-wider text-white/90 bg-black/50 px-3 py-1 rounded">No palco</span>
@@ -438,9 +519,9 @@
   <div class="max-w-screen-2xl mx-auto px-margin-mobile md:px-12">
     <!-- Cabeçalho centralizado -->
     <div class="max-w-3xl mx-auto text-center reveal">
-      <div class="eyebrow center mb-5"><span class="line"></span><span class="text">A palestra</span></div>
+      <div class="eyebrow center mb-5"><span class="text">A palestra</span></div>
       <h2 class="font-headline-lg text-headline-lg md:text-display-lg text-white leading-tight">Quando Pessoas Acreditam: O Drive do Coração™</h2>
-      <p class="text-body-lg text-on-surface-variant mt-6">Depois de 35 anos, Fábio chegou a uma verdade: <span class="text-accent-lime font-bold">empresas extraordinárias são construídas por pessoas que acreditam no que fazem.</span></p>
+      <p class="text-body-lg text-on-surface-variant mt-6">Depois de 32 anos, Fabio chegou a uma verdade: <span class="text-accent-lime font-bold">empresas extraordinárias são construídas por pessoas que acreditam no que fazem.</span></p>
       <div class="mt-8 flex justify-center"><span class="pill font-label-md text-[12px] uppercase tracking-widest text-accent-lime border-accent-lime/30">Framework D.R.I.V.E.</span></div>
     </div>
     <!-- Grade D.R.I.V.E. -->
@@ -454,14 +535,14 @@
   </div>
 </section>
 
-<!-- ================= BLOCO 6 — POR QUE FÁBIO ================= -->
+<!-- ================= BLOCO 6 — POR QUE FABIO ================= -->
 <section id="fabio" class="bg-white py-24 md:py-28">
   <div class="max-w-screen-2xl mx-auto px-margin-mobile md:px-12">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
       <div class="reveal order-2 lg:order-1">
-        <div class="eyebrow mb-5"><span class="line" style="background-color:#1A3D4A"></span><span class="text" style="color:#1A3D4A">A diferença</span></div>
+        <div class="eyebrow mb-5"><span class="text" style="color:#1A3D4A">A diferença</span></div>
         <h2 class="font-headline-lg text-headline-lg md:text-display-lg text-[#122C36]">O empresário que foi para o palco</h2>
-        <p class="text-body-lg text-[#454747] mt-6 max-w-xl">Começou <span class="text-[#122C36] font-semibold">carregando banana</span> ao lado do pai. Terminou <span class="text-[#122C36] font-semibold">sócio da maior rede de hortifrúti do Brasil</span>, vendida a fundo internacional. Quando fala de branding, cultura e liderança, não recita teoria: descreve 35 anos de prática real.</p>
+        <p class="text-body-lg text-[#454747] mt-6 max-w-xl">Começou <span class="text-[#122C36] font-semibold">cortando melancias e abóboras</span> ao lado do pai. Terminou <span class="text-[#122C36] font-semibold">sócio da maior rede de hortifrúti do Brasil</span>, vendida a fundo internacional. Quando fala de branding, cultura e liderança, não recita teoria: descreve 32 anos de prática real.</p>
         <div class="flex flex-wrap gap-3 mt-8">
           <span class="pill-light">MBA em Marketing</span>
           <span class="pill-light">Bacharel em Teologia</span>
@@ -472,7 +553,7 @@
       <div class="reveal order-1 lg:order-2">
         <div class="relative max-w-md mx-auto lg:ml-auto">
           <div class="absolute -top-5 -left-5 w-full h-full border-2 border-[#1A3D4A]/20 rounded-xl pointer-events-none"></div>
-          <img src="assets/retrato/fabio-retrato.jpg" alt="Retrato editorial de Fábio Hertel" class="relative w-full rounded-xl object-cover aspect-[4/5] shadow-2xl z-10" loading="lazy"/>
+          <img src="assets/retrato/fabio-retrato.jpg" alt="Fabio Hertel sorrindo com o microfone na mão durante uma palestra" class="relative w-full rounded-xl object-cover aspect-[4/5] shadow-2xl z-10" loading="lazy"/>
         </div>
       </div>
     </div>
@@ -483,27 +564,91 @@
 <section id="prova" class="bg-surface-container-low py-24 md:py-28">
   <div class="max-w-screen-2xl mx-auto px-margin-mobile md:px-12">
     <div class="text-center max-w-2xl mx-auto reveal">
-      <div class="eyebrow center mb-5"><span class="line"></span><span class="text">Quem já confiou</span><span class="line"></span></div>
+      <div class="eyebrow center mb-5"><span class="text">Quem já confiou</span></div>
       <h2 class="font-headline-lg text-headline-lg md:text-display-lg text-white">Marcas e instituições que já viveram essa experiência</h2>
     </div>
     <!-- Logos -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mt-14 reveal">
-      <div class="logo-chip"><img src="assets/logos/Frame-20.jpg" alt="ABRAS"/></div>
-      <div class="logo-chip"><img src="assets/logos/Frame-8.jpg" alt="APAS"/></div>
-      <div class="logo-chip"><img src="assets/logos/Frame-9.jpg" alt="ACAPS"/></div>
-      <div class="logo-chip"><img src="assets/logos/Frame-10.jpg" alt="AMIS"/></div>
-      <div class="logo-chip"><img src="assets/logos/Frame-17.jpg" alt="SENAR"/></div>
-      <div class="logo-chip"><img src="assets/logos/Frame-21.jpg" alt="CDL"/></div>
-      <div class="logo-chip"><img src="assets/logos/Frame-14.jpg" alt="O Boticário"/></div>
-      <div class="logo-chip"><img src="assets/logos/Frame-19.jpg" alt="AFORT"/></div>
-      <div class="logo-chip"><img src="assets/logos/Frame-15.jpg" alt="Chevron"/></div>
-      <div class="logo-chip"><img src="assets/logos/Frame-20-1.jpg" alt="Frutos do Sertão"/></div>
+    <div class="marquee-lg flex flex-col gap-4 mt-14 reveal" aria-label="Logos de marcas e instituições atendidas">
+        <div class="marquee">
+          <ul class="marquee-track">
+          <li class="marquee-logo"><img src="assets/logos/Frame-8.jpg" alt="APAS" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/extrabom.jpg" alt="Extrabom" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/Frame-17.jpg" alt="SENAR" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/wine.jpg" alt="Wine" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/findes.jpg" alt="FINDES" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/ufes.jpg" alt="UFES" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/oriundi-supermercados.jpg" alt="Oriundi Supermercados" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/Frame-19.jpg" alt="AFORT" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/rede-show.jpg" alt="Rede Show Supermercados" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/Frame-20-1.jpg" alt="Frutos do Sertão" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/cofril.jpg" alt="Cofril" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/pmi.jpg" alt="PMI" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/fucape.jpg" alt="FUCAPE Business School" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/ifes.jpg" alt="IFES" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/brasil-alimenta.jpg" alt="Brasil Alimenta" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/clube-de-permuta.jpg" alt="Clube de Permuta" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-8.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/extrabom.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-17.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/wine.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/findes.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/ufes.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/oriundi-supermercados.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-19.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/rede-show.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-20-1.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/cofril.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/pmi.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/fucape.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/ifes.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/brasil-alimenta.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/clube-de-permuta.jpg" alt="" loading="lazy"/></li>
+          </ul>
+        </div>
+        <div class="marquee">
+          <ul class="marquee-track marquee-reverse">
+          <li class="marquee-logo"><img src="assets/logos/Frame-20.jpg" alt="ABRAS" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/Frame-14.jpg" alt="O Boticário" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/Frame-9.jpg" alt="ACAPS" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/cna.jpg" alt="CNA" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/Frame-21.jpg" alt="CDL" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/Frame-15.jpg" alt="Chevron" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/Frame-10.jpg" alt="AMIS" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/estacio.jpg" alt="Estácio" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/fundacao-estudar.jpg" alt="Fundação Estudar" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/uvv.jpg" alt="UVV" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/governo-espirito-santo.jpg" alt="Governo do Estado do Espírito Santo" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/faesa.jpg" alt="FAESA" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/prefeitura-vila-velha.jpg" alt="Prefeitura de Vila Velha" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/shopping-vila-velha.jpg" alt="Shopping Vila Velha" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/win-eventos.jpg" alt="Win Eventos" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/congresso-olericultura.jpg" alt="Congresso Brasileiro de Olericultura (ABH)" loading="lazy"/></li>
+          <li class="marquee-logo"><img src="assets/logos/sicomercio-barra-mansa.jpg" alt="Sicomércio Barra Mansa" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-20.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-14.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-9.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/cna.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-21.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-15.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/Frame-10.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/estacio.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/fundacao-estudar.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/uvv.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/governo-espirito-santo.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/faesa.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/prefeitura-vila-velha.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/shopping-vila-velha.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/win-eventos.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/congresso-olericultura.jpg" alt="" loading="lazy"/></li>
+          <li class="marquee-logo" aria-hidden="true"><img src="assets/logos/sicomercio-barra-mansa.jpg" alt="" loading="lazy"/></li>
+          </ul>
+        </div>
     </div>
     <!-- Testimonials -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
       <div class="quote-card rounded-xl p-8 md:p-10 reveal">
         <div class="text-accent-lime text-6xl leading-none font-serif mb-2">"</div>
-        <p class="text-body-lg text-on-surface italic -mt-6">Contratamos Fábio para convenção de vendas. A energia e clareza que ele entrega são raras. Plateia saiu com crença real.</p>
+        <p class="text-body-lg text-on-surface italic -mt-6">Contratamos Fabio para convenção de vendas. A energia e clareza que ele entrega são raras. Plateia saiu com crença real.</p>
         <div class="flex items-center gap-4 mt-6">
           <div class="w-11 h-11 rounded-full bg-gradient-to-br from-brand-petrol to-[#2E6B72] flex-none"></div>
           <div><p class="text-white font-semibold text-body-md">Diretoria de RH</p><p class="text-on-surface-variant text-[13px]">Rede varejista · Convenção de vendas</p></div>
@@ -511,7 +656,7 @@
       </div>
       <div class="quote-card rounded-xl p-8 md:p-10 reveal">
         <div class="text-accent-lime text-6xl leading-none font-serif mb-2">"</div>
-        <p class="text-body-lg text-on-surface italic -mt-6">Fábio impactou 2 mil colaboradores nossos em um dia. Raro um palestrante que fala com autoridade e toca o coração.</p>
+        <p class="text-body-lg text-on-surface italic -mt-6">Fabio impactou 2 mil colaboradores nossos em um dia. Raro um palestrante que fala com autoridade e toca o coração.</p>
         <div class="flex items-center gap-4 mt-6">
           <div class="w-11 h-11 rounded-full bg-gradient-to-br from-brand-petrol to-[#2E6B72] flex-none"></div>
           <div><p class="text-white font-semibold text-body-md">Presidência</p><p class="text-on-surface-variant text-[13px]">Associação varejista</p></div>
@@ -525,33 +670,33 @@
 <section id="galeria" class="bg-brand-petrol-deep py-24 md:py-28 border-t border-white/5">
   <div class="max-w-screen-2xl mx-auto px-margin-mobile md:px-12">
     <div class="max-w-2xl mx-auto text-center reveal">
-      <div class="eyebrow center mb-5"><span class="line"></span><span class="text">Nos bastidores</span></div>
+      <div class="eyebrow center mb-5"><span class="text">Nos bastidores</span></div>
       <h2 class="font-headline-lg text-headline-lg md:text-display-lg text-white">Plateias reais, do palco ao chão de loja</h2>
-      <p class="text-on-surface-variant text-body-lg mt-4 max-w-xl mx-auto">Registros de eventos por todo o Brasil — associações, redes varejistas e equipes que viveram a palestra de perto.</p>
+      <p class="text-on-surface-variant text-body-lg mt-4 max-w-xl mx-auto">Registros de eventos por todo o Brasil: associações, redes varejistas e equipes que viveram a palestra de perto.</p>
     </div>
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mt-12 reveal">
-      <button type="button" class="gallery-item" data-full="galeria-de-fotos/frame_11.webp" aria-label="Ampliar: Fábio no palco em evento AFORT">
-        <img src="galeria-de-fotos/frame_11.webp" width="1073" height="700" loading="lazy" alt="Fábio Hertel no palco durante evento AFORT"/>
+      <button type="button" class="gallery-item" data-full="galeria-de-fotos/frame_11.webp" aria-label="Ampliar: Fabio no palco em evento AFORT">
+        <img src="galeria-de-fotos/frame_11.webp" width="1073" height="700" loading="lazy" alt="Fabio Hertel no palco durante evento AFORT"/>
         <span class="gi-zoom material-symbols-outlined" aria-hidden="true">zoom_in</span>
       </button>
       <button type="button" class="gallery-item" data-full="galeria-de-fotos/palestra-6.webp" aria-label="Ampliar: plateia em auditório">
-        <img src="galeria-de-fotos/palestra-6.webp" width="1073" height="700" loading="lazy" alt="Fábio Hertel com plateia em auditório"/>
+        <img src="galeria-de-fotos/palestra-6.webp" width="1073" height="700" loading="lazy" alt="Fabio Hertel com plateia em auditório"/>
         <span class="gi-zoom material-symbols-outlined" aria-hidden="true">zoom_in</span>
       </button>
       <button type="button" class="gallery-item" data-full="galeria-de-fotos/palestra-5.webp" aria-label="Ampliar: equipe reunida após a palestra">
-        <img src="galeria-de-fotos/palestra-5.webp" width="1073" height="700" loading="lazy" alt="Fábio Hertel com equipe uniformizada após a palestra"/>
+        <img src="galeria-de-fotos/palestra-5.webp" width="1073" height="700" loading="lazy" alt="Fabio Hertel com equipe uniformizada após a palestra"/>
         <span class="gi-zoom material-symbols-outlined" aria-hidden="true">zoom_in</span>
       </button>
-      <button type="button" class="gallery-item" data-full="galeria-de-fotos/palestra-7.webp" aria-label="Ampliar: Fábio no palco com microfone">
-        <img src="galeria-de-fotos/palestra-7.webp" width="1073" height="700" loading="lazy" alt="Fábio Hertel discursando no palco com microfone"/>
+      <button type="button" class="gallery-item" data-full="galeria-de-fotos/palestra-7.webp" aria-label="Ampliar: Fabio no palco com microfone">
+        <img src="galeria-de-fotos/palestra-7.webp" width="1073" height="700" loading="lazy" alt="Fabio Hertel discursando no palco com microfone"/>
         <span class="gi-zoom material-symbols-outlined" aria-hidden="true">zoom_in</span>
       </button>
       <button type="button" class="gallery-item" data-full="galeria-de-fotos/palestra-2.webp" aria-label="Ampliar: grupo reunido após a palestra">
-        <img src="galeria-de-fotos/palestra-2.webp" width="1073" height="700" loading="lazy" alt="Fábio Hertel com grupo após a palestra"/>
+        <img src="galeria-de-fotos/palestra-2.webp" width="1073" height="700" loading="lazy" alt="Fabio Hertel com grupo após a palestra"/>
         <span class="gi-zoom material-symbols-outlined" aria-hidden="true">zoom_in</span>
       </button>
       <button type="button" class="gallery-item" data-full="galeria-de-fotos/palestra-4.webp" aria-label="Ampliar: equipe corporativa reunida">
-        <img src="galeria-de-fotos/palestra-4.webp" width="1073" height="700" loading="lazy" alt="Fábio Hertel com equipe corporativa"/>
+        <img src="galeria-de-fotos/palestra-4.webp" width="1073" height="700" loading="lazy" alt="Fabio Hertel com equipe corporativa"/>
         <span class="gi-zoom material-symbols-outlined" aria-hidden="true">zoom_in</span>
       </button>
     </div>
@@ -563,12 +708,10 @@
   <div class="max-w-4xl mx-auto px-margin-mobile md:px-12 text-center reveal">
     <div class="text-[#1A3D4A]/15 text-[120px] leading-none font-serif">"</div>
     <blockquote class="-mt-12 text-[#122C36] italic font-light text-2xl md:text-4xl leading-snug">
-      Por 35 anos, aprendi que as melhores marcas não são construídas por campanhas. São construídas por pessoas que acreditam no que fazem. Meu trabalho hoje é ajudar líderes a criar essa crença.
+      Por 32 anos, aprendi que as melhores marcas não são construídas por campanhas. São construídas por pessoas que acreditam no que fazem. Meu trabalho hoje é ajudar líderes a criar essa crença.
     </blockquote>
     <div class="mt-8 flex items-center justify-center gap-3">
-      <span class="w-8 h-[2px] bg-[#1A3D4A]"></span>
-      <p class="font-label-md text-label-md uppercase tracking-widest text-[#1A3D4A]">Fábio Hertel</p>
-      <span class="w-8 h-[2px] bg-[#1A3D4A]"></span>
+      <p class="font-label-md text-label-md uppercase tracking-widest text-[#1A3D4A]">Fabio Hertel</p>
     </div>
   </div>
 </section>
@@ -576,7 +719,7 @@
 <!-- ================= BLOCO 9 — CTA FINAL + FAQ ================= -->
 <section class="cta-gradient py-24 md:py-28">
   <div class="max-w-screen-2xl mx-auto px-margin-mobile md:px-12 text-center reveal">
-    <div class="eyebrow center mb-5"><span class="line"></span><span class="text">Agenda 2026</span><span class="line"></span></div>
+    <div class="eyebrow center mb-5"><span class="text">Agenda 2026</span></div>
     <h2 class="font-headline-lg text-headline-lg md:text-display-lg text-white max-w-3xl mx-auto">Marcas que amam. Times que acreditam. <span class="text-accent-lime italic font-light">Líderes que ficam.</span></h2>
     <p class="text-on-surface-variant text-body-lg mt-5 max-w-2xl mx-auto">Consulte a disponibilidade de agenda para o seu evento. Retorno em até 24h com proposta personalizada.</p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center mt-9">
@@ -585,8 +728,8 @@
     </div>
     <!-- FAQ -->
     <div class="max-w-[720px] mx-auto mt-16 text-left">
-      <details class="faq"><summary>A palestra é adaptada ao nosso evento?<span class="material-symbols-outlined icon">add</span></summary><div class="answer">Sim. Fábio personaliza conteúdo e cases para seu setor e momento.</div></details>
-      <details class="faq"><summary>Qual a duração? Atende presencialmente?<span class="material-symbols-outlined icon">add</span></summary><div class="answer">60–90 min, ajustável. Presencialmente em todo o Brasil.</div></details>
+      <details class="faq"><summary>A palestra é adaptada ao nosso evento?<span class="material-symbols-outlined icon">add</span></summary><div class="answer">Sim. Fabio personaliza conteúdo e cases para seu setor e momento.</div></details>
+      <details class="faq"><summary>Qual a duração? Atende presencialmente?<span class="material-symbols-outlined icon">add</span></summary><div class="answer">De 60 a 90 minutos, ajustável. Presencialmente em todo o Brasil.</div></details>
       <details class="faq"><summary>Como funciona a proposta?<span class="material-symbols-outlined icon">add</span></summary><div class="answer">Preencha o formulário; retornamos em 24h com valores e condições.</div></details>
     </div>
   </div>
@@ -595,7 +738,7 @@
 <!-- ================= BLOCO 10 — RODAPÉ ================= -->
 <footer class="bg-surface-container-lowest py-16">
   <div class="max-w-screen-2xl mx-auto px-margin-mobile md:px-12 text-center flex flex-col items-center gap-6">
-    <div class="font-headline-lg text-headline-lg text-on-surface">Fábio <span class="text-accent-lime">Hertel</span></div>
+    <div class="font-headline-lg text-headline-lg text-on-surface">Fabio <span class="text-accent-lime">Hertel</span></div>
     <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-on-surface-variant text-body-md">
       <a href="#palestra" class="hover:text-accent-lime transition-colors">Palestras</a><span class="opacity-30">·</span>
       <a href="#video" class="hover:text-accent-lime transition-colors">Conteúdo</a><span class="opacity-30">·</span>
@@ -636,19 +779,54 @@
     input.addEventListener('blur', () => label.style.color = '#636565');
   });
 
-  // Form submit (front-end only)
-  document.getElementById('leadForm').addEventListener('submit', (e) => {
+  // Form submit -> e-mail (FormSubmit). FORM_TO recebe; FORM_CC vai em cópia.
+  const FORM_TO = 'EMAIL_DO_FABIO';
+  const FORM_CC = 'EMAIL_DA_NOTORIUM';
+  document.getElementById('leadForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const form = e.target;
     if (!form.checkValidity()) { form.reportValidity(); return; }
-    document.getElementById('formMsg').classList.remove('hidden');
-    form.reset();
+    const msg = document.getElementById('formMsg');
+    const err = document.getElementById('formErr');
+    const btn = form.querySelector('button[type="submit"]');
+    msg.classList.add('hidden'); err.classList.add('hidden');
+    const fd = new FormData(form);
+    if (fd.get('_honey')) return;
+    const data = fd.get('data') ? fd.get('data').split('-').reverse().join('/') : '';
+    const tipo = form.tipo.options[form.tipo.selectedIndex].text;
+    const payload = {
+      'Nome': fd.get('nome'), 'Empresa': fd.get('empresa'), 'E-mail': fd.get('email'), 'WhatsApp': fd.get('whatsapp'),
+      'Tipo de evento': tipo, 'Data do evento': data, 'Hora da palestra': fd.get('hora') || 'Não informada',
+      _cc: FORM_CC, _replyto: fd.get('email'), _subject: 'Nova consulta de palestra: ' + fd.get('empresa'), _template: 'table'
+    };
+    // Enquanto os e-mails nao estao configurados, o pedido segue pelo WhatsApp
+    if (!FORM_TO.includes('@')) {
+      const texto = 'Olá! Quero consultar a disponibilidade da palestra do Fabio Hertel.\n\n' +
+        Object.entries(payload).filter(([k]) => !k.startsWith('_')).map(([k, v]) => k + ': ' + v).join('\n');
+      window.open('https://wa.me/5511912151400?text=' + encodeURIComponent(texto), '_blank', 'noopener');
+      msg.textContent = '✓ Abrimos o WhatsApp com seus dados. É só enviar a mensagem.';
+      msg.classList.remove('hidden');
+      return;
+    }
+    btn.disabled = true; btn.classList.add('opacity-60');
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/' + FORM_TO, {
+        method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error(res.status);
+      msg.classList.remove('hidden');
+      form.reset();
+    } catch (_) {
+      err.classList.remove('hidden');
+    } finally {
+      btn.disabled = false; btn.classList.remove('opacity-60');
+    }
   });
 
   // Video facades -> YouTube iframe (múltiplos)
   const playFacade = (box) => {
     const id = box.dataset.yt;
-    box.innerHTML = '<iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" title="Fábio Hertel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    box.innerHTML = '<iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" title="Fabio Hertel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     box.removeAttribute('role');
     box.removeAttribute('tabindex');
   };
