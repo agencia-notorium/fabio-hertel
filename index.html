@@ -220,9 +220,9 @@
     html { scroll-behavior:auto; }
     .reveal { opacity:1 !important; transform:none !important; }
     .play-btn { animation:none !important; }
-    .marquee { -webkit-mask-image:none; mask-image:none; }
-    .marquee-track { animation:none !important; flex-wrap:wrap; justify-content:center; width:auto; }
-    .marquee-track [aria-hidden="true"] { display:none; }
+    /* Logos continuam deslizando (pedido do cliente), so que mais devagar */
+    .marquee-track { animation-duration:200s !important; animation-iteration-count:infinite !important; }
+    .marquee-lg .marquee-track { animation-duration:130s !important; }
   }
 </style>
 <noscript><style>.reveal{opacity:1 !important; transform:none !important;}</style></noscript>
